@@ -22,4 +22,6 @@ concrete Twelf of LF = open Prelude in {
     typedBind x y tm = ss (x.s ++ "=" ++ y.s ++ ":" ++ tm.s);
 
     termBind b sd = ss ("%define" ++ b.s ++ sd.s);
+
+    solveWithProof x tm = ss ("%solve" ++ x.s ++ tm.s);
 }
