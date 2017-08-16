@@ -1,4 +1,4 @@
-abstract Twelf = open Prelude in {
+abstract LF = open Prelude in {
   cat
     Sig; Decl; Defn; Sdecl; Id; Ids; Term; Binding;
 
@@ -10,8 +10,9 @@ abstract Twelf = open Prelude in {
 
     typedDecl : Id -> Term -> Term -> Defn;
     decl : Id -> Term -> Defn;
-    anonTypedDecl : Term -> Term -> Defn;
-    anonDecl : Term -> Defn;
+
+    anonTypedDefn : Term -> Term -> Defn;
+    anonDefn : Term -> Defn;
 
     bind : Id -> Id -> Binding;
     typedBind : Id -> Id -> Term -> Binding;
