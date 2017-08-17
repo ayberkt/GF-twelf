@@ -49,4 +49,11 @@ concrete Twelf of LF = open Prelude in {
     piWithHole x tm = ss (braces x.s ++ tm.s);
 
     lambdaWithHole x tm = ss (brackets x.s ++ tm.s);
+
+  oper
+    braces : Str -> Str = \s -> "{" ++ s ++ "}";
+
+    brackets : Str -> Str = \s -> "[" ++ s ++ "]";
+
+    ascribe : Str -> Str -> Str = \s1 -> \s2 -> s1 ++ ":" ++ s2;
 }
