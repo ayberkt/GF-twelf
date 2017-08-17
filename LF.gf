@@ -3,6 +3,9 @@ abstract LF = open Prelude in {
     Sig; Decl; Defn; Sdecl; Id; Ids; Term; Typ; Binding; ConDec;
 
   fun
+    -- Sort: id
+    id : String -> Id;
+
     -- Sort: sig
     emptySig : Sig;
     constDecl : Decl -> Sig -> Sig;
