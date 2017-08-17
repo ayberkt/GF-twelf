@@ -1,6 +1,6 @@
 abstract LF = open Prelude in {
   cat
-    Sig; Decl; Defn; Sdecl; Id; Ids; Term; Binding;
+    Sig; Decl; Defn; Sdecl; Id; Ids; Term; Typ; Binding;
 
   fun
     emptySig : Sig;
