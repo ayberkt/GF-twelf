@@ -50,6 +50,9 @@ concrete Twelf of LF = open Prelude in {
 
     lambdaWithHole x tm = ss (brackets x.s ++ tm.s);
 
+    -- Linearizations for `ConDec`.
+    conDec x tm = ss (period (ascribe x.s tm.s));
+
   oper
     braces : Str -> Str = \s -> "{" ++ s ++ "}";
 
