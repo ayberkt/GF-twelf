@@ -60,5 +60,5 @@ concrete Twelf of LF = open Prelude in {
 
     ascribe : Str -> Str -> Str = \s1 -> \s2 -> s1 ++ ":" ++ s2;
 
-    period : Str -> Str = \s -> s + ".";
+    period : Str -> Str = \s -> s ++ ".";
 }
