@@ -20,4 +20,16 @@ abstract LF = open Prelude in {
     termBind : Binding -> Sdecl -> Sdecl;
     solveWithProof : Id -> Term -> Sdecl;
     solve : Term -> Sdecl;
+
+    typ : Typ -> Term;
+    varOrConst : Id -> Term;
+    larrow : Term -> Term -> Term;
+    rarrow : Term -> Term -> Term;
+    pi : Id -> Term -> Term -> Term;
+    lambda : Id -> Term -> Term -> Term;
+    app : Term -> Term -> Term;
+    ann : Term -> Term -> Term;
+    hole : Term;
+    piWithHole : Id -> Term -> Term;
+    lambdaWithHole : Id -> Term -> Term;
 }
