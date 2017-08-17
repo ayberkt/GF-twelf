@@ -1,18 +1,22 @@
-concrete Twelf of LF = open Prelude in {
+concrete Twelf of LF = open Formal, Prelude in {
   flags
     lexer = lexcode;
     unlexer = unlexcode;
 
   lincat
-    Sig, Binding, Decl, Defn, Id, Ids, Sdecl, Term, Typ, ConDec, Program = SS;
+    Sig, Binding, Decl, Defn, Id, Ids, Sdecl, Term, Typ = Formal.TermPrec;
+    ConDec, Program = SS;
 
   lin
-    id x = ss x.s;
+    id x = constant x.s;
 
     conDec x tm = ss (period (ascribe x.s tm.s));
 
+    larrow = infixr 0 "->";
+    rarrow = infixl 0 "<-";
+
     -- Linearization for pgm.
-    singletonPgm d = ss d.s;
+    emptyPgm = ss "";
     consPgm d p = ss (d.s ++ p.s);
 
   oper
