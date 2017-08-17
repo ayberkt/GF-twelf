@@ -3,6 +3,8 @@ concrete Twelf of LF = open Prelude in {
     Sig, Binding, Decl, Defn, Id, Ids, Sdecl, Term, Typ, ConDec = SS;
 
   lin
+    id x = ss x.s;
+
     emptySig = ss "";
     constDecl d s = ss (d.s ++ s.s);
 
