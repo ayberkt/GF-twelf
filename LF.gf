@@ -19,6 +19,6 @@ abstract LF = open Prelude in {
     hole : Term;
 
     -- Sort: program
-    singletonPgm : ConDec -> Program;
+    emptyPgm : Program;
     consPgm : ConDec -> Program -> Program;
 }
