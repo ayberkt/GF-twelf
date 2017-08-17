@@ -1,2 +1,3 @@
-tp   : type .
-unit : tp .
+typ : type .
+unit : typ .
+arr : typ -> typ -> typ .
