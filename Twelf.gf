@@ -1,6 +1,6 @@
 concrete Twelf of LF = open Prelude in {
   lincat
-    Sig, Binding, Decl, Defn, Id, Ids, Sdecl, Term = SS;
+    Sig, Binding, Decl, Defn, Id, Ids, Sdecl, Term, Typ = SS;
 
   lin
     emptySig = ss "";
