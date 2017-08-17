@@ -26,4 +26,27 @@ concrete Twelf of LF = open Prelude in {
     solveWithProof x tm = ss ("%solve" ++ x.s ++ tm.s);
 
     solve tm = ss ("%solve" ++ "_" ++ ":" ++ tm.s);
+
+    -- Linearizations for `term`.
+    typ t = ss t.s;
+
+    varOrConst x = ss x.s;
+
+    larrow tm1 tm2 = ss (tm1.s ++ "->" ++ tm2.s);
+
+    rarrow tm1 tm2 = ss (tm1.s ++ "<-" ++ tm2.s);
+
+    pi x tm1 tm2 = ss (braces (x.s ++ ":" ++ tm1.s) ++ tm2.s);
+
+    lambda x tm1 tm2 = ss (brackets (x.s ++ ":" ++ tm1.s) ++ tm2.s);
+
+    app tm1 tm2 = ss (tm1.s ++ tm2.s);
+
+    ann tm1 tm2 = ss (ascribe tm1.s tm2.s);
+
+    hole = ss "_";
+
+    piWithHole x tm = ss (braces x.s ++ tm.s);
+
+    lambdaWithHole x tm = ss (brackets x.s ++ tm.s);
 }
