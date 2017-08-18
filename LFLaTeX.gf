@@ -19,23 +19,22 @@ concrete LFLaTeX of LF = open Formal, Prelude, (L = Latex) in {
 
     rarrow tm1 tm2 = {s = "TODO"; isAtomic = False};
 
-    conDec tm tms =
+    conDec tm1 tm2 =
       let
+        cmd : Str = (L.command "gfInfer")
+      in let
         content : Str =
-          case tms.isAtomic of {
+          case tm2.isAtomic of {
             True =>
-              (L.command "gfInfer") ++ showAxiom tm.s tms.s;
+              cmd ++ showAxiom tm1.s tm2.s;
             False =>
-              (L.command "gfInfer") ++ "[" ++ tm.s ++ "]" ++ showTerm tms
+              cmd ++ "[" ++ tm1.s ++ "]" ++ showTerm tm2
           }
       in
         ss (L.inEnv "proof" content);
 
     emptyPgm = ss "";
     consPgm d p = ss (d.s ++ "\n" ++ p.s);
-
-  param
-    Inference = Axiom | Premises;
 
   oper
     showAxiom : Str -> Str -> Str =
