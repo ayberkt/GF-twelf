@@ -17,6 +17,8 @@ concrete LFLaTeX of LF = open Formal, Prelude, (L = Latex) in {
         False => {s = tm1.s ++ "&" ++ tm2.s; isAtomic = False}
       };
 
+    rarrow tm1 tm2 = {s = "TODO"; isAtomic = False};
+
     conDec tm tms =
       let
         content : Str =
