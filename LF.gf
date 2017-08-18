@@ -15,7 +15,7 @@ abstract LF = open Prelude in {
     rarrow : Term -> Term -> Term;
     -- pi : Id -> Term -> Term -> Term;
     -- lambda : Id -> Term -> Term -> Term;
-    -- app : Term -> Term -> Term;
+    app : Term -> Term -> Term;
     -- ann : Term -> Term -> Term;
     -- hole : Term;
 

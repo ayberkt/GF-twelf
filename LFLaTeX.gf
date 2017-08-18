@@ -19,6 +19,9 @@ concrete LFLaTeX of LF = open Formal, Prelude, (L = Latex) in {
 
     rarrow tm1 tm2 = {s = "TODO"; isAtomic = False};
 
+    -- Term application.
+    app tm1 tm2 = {s = tm1.s ++ tm2.s; isAtomic = False};
+
     conDec tm1 tm2 =
       let
         cmd : Str = (L.command "gfInfer")

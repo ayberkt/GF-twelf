@@ -13,8 +13,11 @@ concrete Twelf of LF = open Formal, Prelude in {
 
     conDec x tm = ss (period (ascribe x.s tm.s));
 
-    larrow = infixr 0 "->";
-    rarrow = infixr 0 "<-";
+    larrow = infixr 1 "->";
+    rarrow = infixr 1 "<-";
+
+    -- Term application.
+    app tm1 tm2 =  constant (paren (tm1.s ++ tm2.s));
 
     -- Linearization for pgm.
     emptyPgm = ss "";
