@@ -14,16 +14,18 @@ concrete LFLaTeX of LF = open Formal, Prelude, (L = Latex) in {
 
     larrow tm1 tm2 =
       case tm2.isAtomic of {
-        True  => {s = showTerm tm1 tm2; isAtomic = False};
-        False => {s = showTerm tm1 tm2; isAtomic = False}
+        True  => {s = tm1.s ++ "}" ++ "{" ++ tm2.s ++ "}"; isAtomic = False};
+        False => {s = tm1.s ++ "&" ++ tm2.s; isAtomic = False}
       };
 
     conDec tm tms =
       let
         content : Str =
           case tms.isAtomic of {
-            True => (L.command "infer") ++ showAxiom tm.s tms.s;
-            False => "TODO"
+            True =>
+              (L.command "gfInfer") ++ showAxiom tm.s tms.s;
+            False =>
+              (L.command "gfInfer") ++ "[" ++ tm.s ++ "]" ++ showTerm tms
           }
       in
         ss (L.inEnv "proof" content);
@@ -36,9 +38,8 @@ concrete LFLaTeX of LF = open Formal, Prelude, (L = Latex) in {
 
   oper
     showAxiom : Str -> Str -> Str =
-      \s1 -> \s2 -> "{" ++ s1 ++ ":" ++ s2 ++ "}" ++ "{" ++ "}";
+      \s1 -> \s2 -> "{" ++ s1 ++ "}";
 
-    showTerm : Term -> Term -> Str =
-      \tm1 -> \tm2 ->
-        "{" ++ tm1.s ++ "}" ++ "{" ++ "}";
+    showTerm : Term -> Str =
+      \tm2 -> "{" ++ tm2.s;
 }
