@@ -4,10 +4,9 @@ concrete LFLaTeX of LF = open Formal, Prelude, (L = Latex) in {
     unlexer = unlexcode;
 
   lincat
-    Sig, Binding, Decl, Defn, Id, Ids, Sdecl, Typ = SS;
+    Typ, Program, ConDec = SS;
     Term = {s : Str; isAtomic : Bool};
     Program = SS;
-    ConDec = SS;
 
   lin
     id x = {s = x.s; isAtomic = True};
