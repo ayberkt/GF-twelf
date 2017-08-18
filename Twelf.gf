@@ -4,17 +4,16 @@ concrete Twelf of LF = open Formal, Prelude in {
     unlexer = unlexcode;
 
   lincat
-    Term, Typ = SS;
+    Typ = SS;
     ConDec, Program = SS;
-    [Typ] = SS;
+    Term = Formal.TermPrec;
 
   lin
     id x = constant x.s;
 
     conDec x tm = ss (period (ascribe x.s tm.s));
 
-    lin BaseTyp t1 t2 = ss (t1.s ++ "->" ++ t2.s);
-    lin ConsTyp t ts = ss (t.s ++ "->" ++ ts.s);
+    larrow = infixr 0 "->";
 
     -- Linearization for pgm.
     emptyPgm = ss "";
