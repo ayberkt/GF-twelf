@@ -2,7 +2,6 @@ abstract LF = open Prelude in {
   cat
     Term; ConDec; Program;
     Typ;
-    [Typ]{2};
 
   fun
     -- Sort: id
